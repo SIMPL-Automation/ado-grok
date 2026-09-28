@@ -4,8 +4,8 @@ Marketplace plugin that connects **Grok Bot** to [Azure DevOps](https://dev.azur
 
 ## Design goals
 
-- Runs on **Grok Bot’s computer** (the shared box) — **no user laptop** and **no Azure CLI** required for the default install path.
-- Auth is a **Personal Access Token** supplied as a plugin secret (base64 of `email:PAT`).
+- Runs on **Grok Bot’s computer** — **no user laptop** and **no Azure CLI** required for the default install path.
+- Auth is a **raw Personal Access Token** pasted into Grok Bot’s secure plugin setup. The plugin encodes it on the bot computer before starting MCP (users never base64-encode themselves).
 - Default org: `SimplAutomation`. Override with the `ADO_ORG` setup field.
 - Tool domains loaded by default: `core`, `work-items`, `repositories`, `pipelines`.
 
@@ -13,7 +13,7 @@ Companion bot: designed to pair with an **ADO Grok** specialist bot (skills + wo
 
 ## What it includes
 
-- **MCP:** `npx -y @azure-devops/mcp ${ADO_ORG} --authentication pat` with domains above
+- **MCP:** `scripts/run-ado-mcp.sh` → `npx -y @azure-devops/mcp ${ADO_ORG} --authentication pat` with domains above
 - **Skills:**
   - `ado-getting-started` — first-run auth check and smoke tests
   - `ado-work-items` — tickets / WIQL / state updates
@@ -25,18 +25,16 @@ Upstream MCP tools are owned by Microsoft; this repo’s MIT license covers pack
 ## Install (marketplace)
 
 1. Search Grok Bot plugins for **ADO Grok** (`ado-grok`) and install.
-2. Set setup fields:
-   - **ADO_ORG** — e.g. `SimplAutomation`
-   - **ADO_PAT** — base64 of `email:YOUR_PAT` (email can be any non-empty string)
+2. In plugin setup, set:
+   - **ADO_ORG** — e.g. `SimplAutomation` (or your sandbox org)
+   - **ADO_PAT** — paste your **raw** Azure DevOps PAT into the secure field (do not base64-encode; do not paste into chat)
 3. Ask the agent to list projects or call a core MCP tool to smoke-test.
 
-### Encode a PAT
-
-```bash
-printf '%s' 'you@example.com:YOUR_ADO_PAT' | base64
-```
-
 Create the PAT in Azure DevOps → User settings → Personal access tokens. Typical scopes: **Work Items** (read/write), **Code** (read), **Build** (read). Add more only if your workflows need them.
+
+## How PAT encoding works
+
+Microsoft’s MCP expects `PERSONAL_ACCESS_TOKEN` as base64 of `email:PAT`. This plugin accepts the **raw** PAT in `ADO_PAT`, then `scripts/run-ado-mcp.sh` (on the bot computer) encodes it and starts the server. You never need your laptop for that step.
 
 ## Install (local / Cursor)
 
@@ -45,7 +43,7 @@ mkdir -p ~/.cursor/plugins/local
 ln -sfn ~/code/simpl/github/ado-grok ~/.cursor/plugins/local/ado-grok
 ```
 
-Configure the same `ADO_ORG` / `ADO_PAT` variables in the client’s plugin or MCP env. Restart / reload, then smoke-test.
+Configure the same `ADO_ORG` / `ADO_PAT` variables (raw PAT) in the client’s plugin or MCP env. Restart / reload, then smoke-test.
 
 > Grok Bot does not load `~/.cursor/plugins/local/` the same way Cursor IDE does — prefer marketplace install for Grok Bot.
 
@@ -60,7 +58,7 @@ Microsoft also offers a **remote** Azure DevOps MCP (`https://mcp.dev.azure.com/
 ## Develop
 
 1. Edit `.cursor-plugin/plugin.json` for marketplace metadata and `variables`.
-2. Keep `mcp.json` pointed at `@azure-devops/mcp` with PAT env `${ADO_PAT}`.
+2. Keep `mcp.json` pointing at `scripts/run-ado-mcp.sh` via `${CURSOR_PLUGIN_ROOT}`.
 3. Add skills under `skills/<name>/SKILL.md`.
 4. Run Create Plugin **review-plugin-submission** checks before publishing.
 

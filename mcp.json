@@ -1,21 +1,13 @@
 {
   "mcpServers": {
     "azure-devops": {
-      "command": "npx",
+      "command": "bash",
       "args": [
-        "-y",
-        "@azure-devops/mcp",
-        "${ADO_ORG}",
-        "--authentication",
-        "pat",
-        "-d",
-        "core",
-        "work-items",
-        "repositories",
-        "pipelines"
+        "${CURSOR_PLUGIN_ROOT}/scripts/run-ado-mcp.sh"
       ],
       "env": {
-        "PERSONAL_ACCESS_TOKEN": "${ADO_PAT}"
+        "ADO_ORG": "${ADO_ORG}",
+        "ADO_PAT": "${ADO_PAT}"
       }
     }
   }

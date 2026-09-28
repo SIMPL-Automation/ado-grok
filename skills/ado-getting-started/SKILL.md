@@ -2,8 +2,8 @@
 name: ado-getting-started
 description: >-
   Use when the user just installed ADO Grok, asks how to connect Azure DevOps,
-  needs a first-run smoke test, or auth/PAT setup fails. Walk through org + PAT
-  (base64) and verify MCP with a read-only project/work-item call.
+  needs a first-run smoke test, or auth/PAT setup fails. Walk through org + raw
+  PAT (secure paste into Grok Bot only) and verify MCP with a read-only call.
 ---
 
 # ADO Grok — getting started
@@ -15,24 +15,20 @@ You help set up the **ado-grok** plugin so Grok Bot can talk to Azure DevOps **w
 - Plugin **ADO Grok** installed on this bot
 - Setup fields set:
   - `ADO_ORG` — organization name only (SIMPL default: `SimplAutomation`)
-  - `ADO_PAT` — **base64** of `email:PAT` (not the raw PAT string)
+  - `ADO_PAT` — **raw** Personal Access Token (not base64)
 
-If secrets are missing, ask the user to set them in plugin configure / install fields. Never ask them to paste a PAT into chat — use a secure secret request if the host supports it.
+If secrets are missing, ask the user to set them in plugin configure / install fields, or use a Grok Bot secure secret request for the raw PAT. **Never** ask them to paste a PAT into chat. **Never** ask them to base64-encode on their computer — encoding runs on the bot computer via `scripts/run-ado-mcp.sh`.
 
 ## Smoke test (read-only)
 
 1. Confirm Azure DevOps MCP tools are available (namespace for `azure-devops` / ado).
 2. List projects (or equivalent core tool) for `ADO_ORG`.
-3. Optionally fetch one work item or list PRs in project `SIMPLware` if that is their team project.
-4. Report success with org + project names; on failure, check PAT encoding, scopes, and org spelling.
+3. Optionally fetch one work item or list PRs in their team project (for SIMPL: `SIMPLware`; for sandbox training: `ado-grok`).
+4. Report success with org + project names; on failure, check PAT scopes, org spelling, and that the raw PAT (not base64) was supplied.
 
-## Encode reminder
+## Create a PAT (user side)
 
-```bash
-printf '%s' 'you@example.com:YOUR_ADO_PAT' | base64
-```
-
-Typical scopes: Work Items, Code, Build (read or read/write as needed).
+Azure DevOps → User settings → Personal access tokens. Typical scopes: Work Items, Code, Build (read or read/write as needed). Paste the raw token into Grok Bot’s secure field only.
 
 ## After success
 
