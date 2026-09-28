@@ -1,0 +1,48 @@
+{
+  "name": "ado-grok",
+  "displayName": "ADO Grok",
+  "version": "0.1.0",
+  "description": "Connect Grok Bot to Azure DevOps via Microsoft's official local MCP (@azure-devops/mcp). PAT auth on the bot computer — no user laptop or Azure CLI required. Work items, repos/PRs, and pipelines for org SimplAutomation (configurable).",
+  "author": {
+    "name": "Stephen Nilsen"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/SIMPL-Automation/ado-grok",
+  "repository": "https://github.com/SIMPL-Automation/ado-grok",
+  "keywords": [
+    "azure-devops",
+    "ado",
+    "grok",
+    "mcp",
+    "work-items",
+    "pipelines",
+    "pull-requests"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "azure-devops",
+    "ado",
+    "grok",
+    "mcp"
+  ],
+  "logo": "assets/logo.svg",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "ADO_ORG": {
+        "type": "string",
+        "title": "Azure DevOps organization",
+        "description": "Organization name only (e.g. SimplAutomation), not the full URL.",
+        "default": "SimplAutomation"
+      },
+      "ADO_PAT": {
+        "type": "string",
+        "title": "Azure DevOps PAT (base64)",
+        "description": "Base64 of email:PAT (email can be any non-empty string). Example: printf '%s' 'you@example.com:YOUR_PAT' | base64. Scopes: Work Items, Code, Build (and others you need). Never paste the raw PAT without encoding."
+      }
+    },
+    "required": ["ADO_ORG", "ADO_PAT"]
+  }
+}

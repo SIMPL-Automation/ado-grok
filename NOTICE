@@ -1,0 +1,5 @@
+This plugin packages Microsoft's Azure DevOps MCP server (@azure-devops/mcp)
+for use with Grok Bot. The MCP server and its tools are subject to Microsoft's
+terms and licenses for that package. This repository's MIT LICENSE covers the
+plugin packaging, skills, and documentation authored by SIMPL Automation /
+Stephen Nilsen, not a relicense of Microsoft materials.
