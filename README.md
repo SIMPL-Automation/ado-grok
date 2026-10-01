@@ -6,7 +6,7 @@ Marketplace plugin that connects **Grok Bot** to [Azure DevOps](https://dev.azur
 
 - Runs on **Grok Bot’s computer** — **no user laptop** and **no Azure CLI** required for the default install path.
 - Auth is a **raw Personal Access Token** pasted into Grok Bot’s secure plugin setup. The plugin encodes it on the bot computer before starting MCP (users never base64-encode themselves).
-- Default org: `SimplAutomation`. Override with the `ADO_ORG` setup field.
+- Configured via the `ADO_ORG` setup field (your organization name).
 - Tool domains loaded by default: `core`, `work-items`, `repositories`, `pipelines`.
 
 Companion bot: designed to pair with an **ADO Grok** specialist bot (skills + workflows). Plugin-only install also works.
@@ -33,7 +33,7 @@ Upstream MCP tools are owned by Microsoft; this repo’s MIT license covers pack
 
 1. Search Grok Bot plugins for **ADO Grok** (`ado-grok`) and install.
 2. In plugin setup, set:
-   - **ADO_ORG** — e.g. `SimplAutomation` (or your sandbox org)
+   - **ADO_ORG** — your Azure DevOps organization name (e.g. `myorg`)
    - **ADO_PAT** — paste your **raw** Azure DevOps PAT into the secure field (do not base64-encode; do not paste into chat)
 3. Ask the agent to list projects or call a core MCP tool to smoke-test.
 

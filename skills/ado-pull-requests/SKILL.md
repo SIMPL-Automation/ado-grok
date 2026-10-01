@@ -12,6 +12,6 @@ Use Azure DevOps MCP **repositories** tools from ado-grok for PR workflows.
 ## Rules
 
 - Prefer MCP over `az repos` / REST from shell.
-- Default project `SIMPLware` unless specified.
+- Ask for the user's project if not already known from context; remember it for the session.
 - Summarize PRs with title, author, status, and link; do not approve/merge unless the user explicitly asks.
-- For deep code-behavior questions, route to SIMPL Code Researcher when that teammate policy applies.
+- **Capability testing**: use the sandbox `ado-grok` project for fixture tests, never production/day-to-day projects.

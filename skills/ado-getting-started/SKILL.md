@@ -14,7 +14,7 @@ You help set up the **ado-grok** plugin so Grok Bot can talk to Azure DevOps **w
 
 - Plugin **ADO Grok** installed on this bot
 - Setup fields set:
-  - `ADO_ORG` — organization name only (SIMPL default: `SimplAutomation`)
+  - `ADO_ORG` — organization name only (e.g. `myorg`)
   - `ADO_PAT` — **raw** Personal Access Token (not base64)
 
 If secrets are missing, ask the user to set them in plugin configure / install fields, or use a Grok Bot secure secret request for the raw PAT. **Never** ask them to paste a PAT into chat. **Never** ask them to base64-encode on their computer — encoding runs on the bot computer via `scripts/run-ado-mcp.sh`.
@@ -23,7 +23,7 @@ If secrets are missing, ask the user to set them in plugin configure / install f
 
 1. Confirm Azure DevOps MCP tools are available (namespace for `azure-devops` / ado).
 2. List projects (or equivalent core tool) for `ADO_ORG`.
-3. Optionally fetch one work item or list PRs in their team project (for SIMPL: `SIMPLware`; for sandbox training: `ado-grok`).
+3. Optionally fetch one work item or list PRs in the user's project if known, or ask which project to test with. (For capability testing in sandbox: use `ado-grok` project.)
 4. Report success with org + project names; on failure, check PAT scopes, org spelling, and that the raw PAT (not base64) was supplied.
 
 ## Create a PAT (user side)
