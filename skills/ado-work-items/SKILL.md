@@ -10,10 +10,10 @@ description: >-
 
 Use the Azure DevOps MCP **work-items** (and **core**) tools from the ado-grok plugin.
 
-## Defaults (SIMPL)
+## Context
 
-- Organization: from `ADO_ORG` (often `SimplAutomation`)
-- Common project: `SIMPLware` unless the user names another
+- Organization: from `ADO_ORG` environment variable
+- Project: ask the user for their default project if not specified, and remember it for the session
 
 ## Rules
 
@@ -22,3 +22,4 @@ Use the Azure DevOps MCP **work-items** (and **core**) tools from the ado-grok p
 - **Create / update / state changes** only when the user explicitly asks.
 - When a Todoist task is linked to an ADO item and the user marks it in progress, keep ADO state in sync (Doing / equivalent) if that workflow applies.
 - Summarize results in plain language; include work item IDs and links when available.
+- **Capability testing**: use the sandbox `ado-grok` project for fixture tests, never production/day-to-day projects.

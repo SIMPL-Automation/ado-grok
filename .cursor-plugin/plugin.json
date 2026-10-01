@@ -34,8 +34,7 @@
       "ADO_ORG": {
         "type": "string",
         "title": "Azure DevOps organization",
-        "description": "Organization name only (e.g. SimplAutomation), not the full URL.",
-        "default": "SimplAutomation"
+        "description": "Organization name only (e.g. myorg), not the full URL."
       },
       "ADO_PAT": {
         "type": "string",
