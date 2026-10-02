@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Set plugin author attribution to **SIMPL Automation** (P4 packaging)
+
 ## 0.1.1
 
 - Accept a **raw** Azure DevOps PAT in plugin setup (`ADO_PAT`); encode on the bot computer via `scripts/run-ado-mcp.sh`
