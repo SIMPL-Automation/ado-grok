@@ -1,7 +1,7 @@
 {
   "name": "ado-grok",
   "displayName": "ADO Grok",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Connect Grok Bot to Azure DevOps via Microsoft's official local MCP (@azure-devops/mcp). Paste a raw PAT into Grok Bot \u2014 encoding runs on the bot computer. No user laptop or Azure CLI required.",
   "author": {
     "name": "SIMPL Automation"
