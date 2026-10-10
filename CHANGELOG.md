@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Plugin icon eyes enlarged 50% to match the new Grok Bot avatars
+
 ## 0.1.2
 
 - Set plugin author attribution to **SIMPL Automation** (P4 packaging)
