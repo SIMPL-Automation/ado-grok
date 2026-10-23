@@ -19,7 +19,7 @@ Use Azure DevOps MCP **repositories** tools from ado-grok for PR workflows.
 ## Capabilities (v2.11.0)
 
 ### Organization-wide PR listing
-Use `repo_pull_request_org` to list the authenticated user's active pull requests across all projects and repositories in the organization. Supports filters for status, branches, time range, and more.
+Use `repo_pull_request_org` to list active pull requests across all projects and repositories in the organization for the authenticated user. Accepts `is_reviewer` (boolean: true for PRs where user is reviewer, false for PRs created by user), `reviewStatus` (all/approved/pending), `top`, and `skip`. Returns only active PRs.
 
 ### Repository file operations
 - `repo_file_write` with action `create`: create a new text file on an existing branch and commit the change.
