@@ -37,7 +37,7 @@ Upstream MCP tools are owned by Microsoft; this repo’s MIT license covers pack
    - **ADO_PAT** — paste your **raw** Azure DevOps PAT into the secure field (do not base64-encode; do not paste into chat)
 3. Ask the agent to list projects or call a core MCP tool to smoke-test.
 
-Create the PAT in Azure DevOps → User settings → Personal access tokens. Typical scopes: **Work Items** (read/write), **Code** (read), **Build** (read). Add more only if your workflows need them.
+Create the PAT in Azure DevOps → User settings → Personal access tokens. Typical scopes: **Work Items** (read/write), **Code** (read & write for file operations, PR thread replies, and status changes; read-only otherwise), **Build** (read). Add more only if your workflows need them.
 
 ## How PAT encoding works
 
