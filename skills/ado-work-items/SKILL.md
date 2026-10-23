@@ -23,3 +23,11 @@ Use the Azure DevOps MCP **work-items** (and **core**) tools from the ado-grok p
 - When a Todoist task is linked to an ADO item and the user marks it in progress, keep ADO state in sync (Doing / equivalent) if that workflow applies.
 - Summarize results in plain language; include work item IDs and links when available.
 - **Capability testing**: use the sandbox `ado-grok` project for fixture tests, never production/day-to-day projects.
+
+## Capabilities (v2.11.0)
+
+### Work item attachments
+- `wit_work_item_attachment_upload`: upload a file as a new work item attachment (returns an attachment URL).
+- `wit_work_item_attachment_link`: link an uploaded attachment to a specific work item by ID.
+
+These tools enable a two-step workflow: first upload the file to get its URL, then link it to one or more work items.
