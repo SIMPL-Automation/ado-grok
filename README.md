@@ -11,12 +11,6 @@ Marketplace plugin that connects **Grok Bot** to [Azure DevOps](https://dev.azur
 
 Companion bot: designed to pair with an **ADO Grok** specialist bot (skills + workflows). Plugin-only install also works.
 
-## Icons
-
-- **`assets/logo.svg`** — transparent mark used by `plugin.json` `logo` field
-- **`assets/logo-mark.svg` / `.png`** — same transparent mark (PNG for bot avatars)
-- **`assets/logo-marketplace.svg` / `.png`** — mark on #111111 rounded plate for marketplace listings
-
 ## What it includes
 
 - **MCP:** `scripts/run-ado-mcp.sh` → `npx -y @azure-devops/mcp ${ADO_ORG} --authentication pat` with domains above
