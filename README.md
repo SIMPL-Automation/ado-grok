@@ -22,7 +22,7 @@ Companion bot: designed to pair with an **ADO Grok** specialist bot (skills + wo
 
 Upstream MCP tools are owned by Microsoft; this repo's MIT license covers packaging and skills only (see `NOTICE`).
 
-Tested with `@azure-devops/mcp` 2.11.0 (the wrapper currently runs the latest via npx).
+Tested with `@azure-devops/mcp` 2.11.1 (the wrapper currently runs the latest via npx).
 
 ## What you can ask
 

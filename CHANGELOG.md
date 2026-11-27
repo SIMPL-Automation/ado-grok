@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Docs: tested against @azure-devops/mcp 2.11.1. Upstream changes: moved to Zod 4 with a shared date-input schema for work-items, pipelines and mcp-apps tools (#1736); artifact downloads check the URL host before sending credentials (#1770); work-tool fixes (#1768), which don't affect ado-grok because the work domain is off; changed-files firstComparingIteration=0 fix (#1762); dependency bumps. No changes to MCP args, auth, or domains.
+
 ## 0.1.4
 
 - Synced skills to @azure-devops/mcp 2.11.0 stable capabilities:

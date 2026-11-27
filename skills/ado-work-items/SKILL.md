@@ -24,7 +24,7 @@ Use the Azure DevOps MCP **work-items** (and **core**) tools from the ado-grok p
 - Summarize results in plain language; include work item IDs and links when available.
 - **Capability testing**: use the sandbox `ado-grok` project for fixture tests, never production/day-to-day projects.
 
-## Capabilities (v2.11.0)
+## Capabilities (v2.11.1)
 
 ### Work item attachments
 - `wit_work_item_attachment_upload`: upload a file as a new work item attachment (returns an attachment URL).
