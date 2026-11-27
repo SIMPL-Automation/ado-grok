@@ -16,7 +16,7 @@ Use Azure DevOps MCP **repositories** tools from ado-grok for PR workflows.
 - Summarize PRs with title, author, status, and link; do not approve/merge unless the user explicitly asks.
 - **Capability testing**: use the sandbox `ado-grok` project for fixture tests, never production/day-to-day projects.
 
-## Capabilities (v2.11.0)
+## Capabilities (v2.11.1)
 
 ### Organization-wide PR listing
 Use `repo_pull_request_org` to list active pull requests across all projects and repositories in the organization for the authenticated user. Accepts `is_reviewer` (boolean: true for PRs where user is reviewer, false for PRs created by user), `reviewStatus` (all/approved/pending), `top`, and `skip`. Returns only active PRs.
